@@ -100,7 +100,7 @@ class GameScene: SKScene {
             addChild(background);
         }
         addChild(zombie);
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemy),SKAction.wait(forDuration: 2.0)])))
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemy),SKAction.wait(forDuration: 3.0)])))
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnCat),SKAction.wait(forDuration: 1.0)])))
         zombie.position = CGPoint(x: 400, y: 400)
         zombie.zPosition = 100
@@ -263,8 +263,8 @@ class GameScene: SKScene {
         enemy.zPosition = 50
         enemy.name = "enemy"
         addChild(enemy);
-        let actionMove =
-            SKAction.move(to: CGPoint(x: -enemy.size.width/2+cameraRect.minX, y: enemy.position.y), duration: 2.0);
+        let actionMove = SKAction.moveBy(x: -cameraRect.size.width-enemy.size.width/2, y: 0, duration: 3)
+            //SKAction.move(to: CGPoint(x: -enemy.size.width/2+cameraRect.minX, y: enemy.position.y), duration: 4.0);
         let actionRemove = SKAction.removeFromParent()
         enemy.run(SKAction.sequence([actionMove, actionRemove]));
     }
