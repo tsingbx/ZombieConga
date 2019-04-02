@@ -263,7 +263,8 @@ class GameScene: SKScene {
         enemy.zPosition = 50
         enemy.name = "enemy"
         addChild(enemy);
-        let actionMove = SKAction.move(to: CGPoint(x: -enemy.size.width/2, y: enemy.position.y), duration: 2.0);
+        let actionMove =
+            SKAction.move(to: CGPoint(x: -enemy.size.width/2+cameraRect.minX, y: enemy.position.y), duration: 2.0);
         let actionRemove = SKAction.removeFromParent()
         enemy.run(SKAction.sequence([actionMove, actionRemove]));
     }
