@@ -99,11 +99,13 @@ class GameScene: SKScene {
             background.name = "background"
             addChild(background);
         }
+        
+        zombie.position = CGPoint(x:  400, y: 400)
+        zombie.zPosition = 100
         addChild(zombie);
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemy),SKAction.wait(forDuration: 3.0)])))
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnCat),SKAction.wait(forDuration: 1.0)])))
-        zombie.position = CGPoint(x: 400, y: 400)
-        zombie.zPosition = 100
+        
         //debugDrawPlayableArea();
         playBackgroundMusic(filename: "backgroundMusic.mp3")
         
@@ -440,6 +442,9 @@ class GameScene: SKScene {
         let backgroundVelocity = CGPoint(x: cameraMovePointsPerSec, y: 0)
         let amountToMove = backgroundVelocity * CGFloat(dt)
         camera?.position += amountToMove
+        if camera?.position.x ?? 0 > zombie.position.x && lastTouchLocation.length() == 0 {
+            zombie.position.x = cameraRect.minX + 400;
+        }
         enumerateChildNodes(withName: "background") { node, _ in
             let background = node as! SKSpriteNode
             if background.position.x + background.size.width < self.cameraRect.origin.x {
