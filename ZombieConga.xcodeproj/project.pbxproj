@@ -22,6 +22,7 @@
 		A26E43672248D91D0000FA3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26E43662248D91D0000FA3C /* Assets.xcassets */; };
 		A26E436A2248D91D0000FA3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A26E43682248D91D0000FA3C /* LaunchScreen.storyboard */; };
 		A2C1866A224B72B60092A780 /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C18669224B72B60092A780 /* MyUtils.swift */; };
+		A2DBF51022548A030052F3EC /* GLIMSTIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = A2DBF50F225489CE0052F3EC /* GLIMSTIC.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A26E43692248D91D0000FA3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A26E436B2248D91D0000FA3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2C18669224B72B60092A780 /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
+		A2DBF50F225489CE0052F3EC /* GLIMSTIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GLIMSTIC.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				A211BA66224E0DAD000A6C04 /* Sounds */,
 				A26E43592248D91A0000FA3C /* AppDelegate.swift */,
+				A2DBF50F225489CE0052F3EC /* GLIMSTIC.TTF */,
 				A26E435D2248D91A0000FA3C /* Actions.sks */,
 				A26E435F2248D91A0000FA3C /* GameScene.swift */,
 				A211BA712251BA83000A6C04 /* GameOverScene.swift */,
@@ -161,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2DBF51022548A030052F3EC /* GLIMSTIC.TTF in Resources */,
 				A211BA6E224E0DAD000A6C04 /* hitCat.wav in Resources */,
 				A211BA6F224E0DAD000A6C04 /* hitCatLady.wav in Resources */,
 				A211BA70224E0DAD000A6C04 /* backgroundMusic.mp3 in Resources */,

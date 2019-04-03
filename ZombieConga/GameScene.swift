@@ -42,6 +42,10 @@ class GameScene: SKScene {
     
     let cameraMovePointsPerSec: CGFloat = 200.0
     
+    let livesLabel = SKLabelNode(fontNamed: "Glimstick")
+    
+    let catsLabel = SKLabelNode(fontNamed: "Glimstick")
+    
     override init(size: CGSize) {
         let maxAspectRadio:CGFloat = 16.0/9.0
         let playableHeight = size.width / maxAspectRadio
@@ -112,8 +116,24 @@ class GameScene: SKScene {
         let cameraNode = SKCameraNode()
         addChild(cameraNode)
         camera = cameraNode
-        //camera?.position = CGPoint(x: size.width/2, y: size.height/2)
         setCameraPostion(position: CGPoint(x: size.width/2, y: size.height/2))
+        livesLabel.text = "Lives: X"
+        livesLabel.fontColor = SKColor.black
+        livesLabel.fontSize = 100
+        livesLabel.zPosition = 100
+        livesLabel.position = CGPoint(x: -playableRect.size.width/2+CGFloat(20), y: -playableRect.size.height/2+CGFloat(20)+overlapAmount()/2)
+        livesLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+        livesLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.bottom
+        
+        catsLabel.text = "Cats: X"
+        catsLabel.fontColor = SKColor.black
+        catsLabel.fontSize = 100
+        catsLabel.zPosition = 100
+        catsLabel.position = CGPoint(x: playableRect.size.width/2-CGFloat(20), y: -playableRect.size.height/2+CGFloat(20)+overlapAmount()/2)
+        catsLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+        catsLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.bottom
+        cameraNode.addChild(livesLabel)
+        cameraNode.addChild(catsLabel)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -151,6 +171,7 @@ class GameScene: SKScene {
     }
     
     func winGame(trainCount: NSInteger){
+        catsLabel.text = "Cats: \(trainCount)"
         if trainCount >= 15 && !gameOver {
             gameOver = true
             showGameOverScene(won: true);
@@ -384,6 +405,7 @@ class GameScene: SKScene {
             }
             targetPosition = node.position
         }
+        livesLabel.text = "Lives: \(lives)"
         winGame(trainCount: trainCount)
     }
     
